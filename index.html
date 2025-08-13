@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heartable Demo Player</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      flex-direction: column;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: #00ff00;
+    }
+
+    video {
+      width: 90%;
+      max-width: 900px;
+      border: 3px solid #00ff00;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00ff00;
+    }
+
+    .controls {
+      margin-top: 10px;
+    }
+
+    .controls button {
+      background-color: #00ff00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .controls button:hover {
+      background-color: #00cc00;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💖 Heartable Demo Player</h1>
+
+  <video controls>
+  <source src="https://raw.githubusercontent.com/officialsumitkumarin-boop/Heartable-ChatBot/main/Proff/💖%20Heartable%20Chatbot%202025-08-13%2023-04-21.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+  <div class="controls">
+    <button onclick="playVideo()">Play</button>
+    <button onclick="pauseVideo()">Pause</button>
+    <button onclick="restartVideo()">Restart</button>
+  </div>
+
+  <script>
+    const video = document.getElementById("heartableVideo");
+
+    function playVideo() {
+      video.play();
+    }
+
+    function pauseVideo() {
+      video.pause();
+    }
+
+    function restartVideo() {
+      video.currentTime = 0;
+      video.play();
+    }
+  </script>
+
+</body>
+</html>
