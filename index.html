@@ -3,37 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heartable Demo Player</title>
+  <title>💖 Heartable Demo Player</title>
+  <link rel="icon" href="images/WhatsApp Image 2025-08-13 at 00.02.32_a953efaa.jpg" type="image/jpeg">
+
   <style>
+    /* ---------------------- General Styles ---------------------- */
     body {
       margin: 0;
       padding: 0;
       background-color: #0f0f0f;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
       flex-direction: column;
+      min-height: 100vh;
     }
 
     h1 {
-      margin-bottom: 20px;
-      text-align: center;
       color: #00ff00;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
     }
 
-    video {
+    /* ---------------------- Video Container ---------------------- */
+    .video-container {
       width: 90%;
       max-width: 900px;
       border: 3px solid #00ff00;
       border-radius: 12px;
-      box-shadow: 0 0 20px #00ff00;
+      box-shadow: 0 0 25px #00ff00;
+      overflow: hidden;
+      position: relative;
+      background-color: #000;
     }
 
+    video {
+      width: 100%;
+      display: block;
+    }
+
+    /* ---------------------- Custom Controls ---------------------- */
     .controls {
+      display: flex;
+      justify-content: center;
       margin-top: 10px;
+      flex-wrap: wrap;
     }
 
     .controls button {
@@ -41,7 +58,7 @@
       color: #000;
       border: none;
       padding: 10px 20px;
-      margin: 0 5px;
+      margin: 5px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
@@ -51,16 +68,37 @@
     .controls button:hover {
       background-color: #00cc00;
     }
+
+    /* ---------------------- Mobile Specific ---------------------- */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .controls button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
   </style>
 </head>
 <body>
 
   <h1>💖 Heartable Demo Player</h1>
 
-  <video controls>
-  <source src="https://raw.githubusercontent.com/officialsumitkumarin-boop/Heartable-ChatBot/main/Proff/💖%20Heartable%20Chatbot%202025-08-13%2023-04-21.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+  <div class="video-container">
+    <video id="heartableVideo">
+      <source src="https://raw.githubusercontent.com/officialsumitkumarin-boop/Heartable-ChatBot/main/Proff/💖%20Heartable%20Chatbot%202025-08-13%2023-04-21.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="controls">
+    <button onclick="playVideo()">▶️</button>
+    <button onclick="pauseVideo()">⏸</button>
+    <button onclick="restartVideo()">🔄</button>
+  </div>
 
   <script>
     const video = document.getElementById("heartableVideo");
@@ -77,6 +115,15 @@
       video.currentTime = 0;
       video.play();
     }
+
+    // Auto-fit video height based on device
+    function adjustVideoHeight() {
+      const vh = window.innerHeight * 0.6; // 60% of viewport height
+      video.style.height = vh + "px";
+    }
+
+    window.addEventListener("resize", adjustVideoHeight);
+    window.addEventListener("load", adjustVideoHeight);
   </script>
 
 </body>
